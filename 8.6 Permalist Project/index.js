@@ -22,7 +22,7 @@ db.connect();
 // ];
 
 app.get("/", async (req, res) => {
-  const query = await db.query("SELECT * FROM items");
+  const query = await db.query("SELECT * FROM items ORDER BY id ASC"); //added order by to prevent the list items from changing 
   const items = query.rows;
   // console.log(items);
   res.render("index.ejs", {
